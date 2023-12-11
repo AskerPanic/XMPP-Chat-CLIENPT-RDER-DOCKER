@@ -19,11 +19,11 @@ EXPOSE 22
 EXPOSE 4200
 
 # 复制 entrypoint.sh 并赋予执行权限
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY must.sh /must.sh
+RUN chmod +x /must.sh
 
 # 指定 entrypoint.sh 作为容器的入口点
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/must.sh"]
 
 # 启动 SSH 服务和 Shellinabox
 # CMD ["/usr/sbin/sshd", "-D"] && /usr/bin/shellinaboxd -t -s /:LOGIN
