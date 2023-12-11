@@ -23,7 +23,7 @@ COPY must.sh /must.sh
 RUN chmod +x /must.sh
 
 # 指定 entrypoint.sh 作为容器的入口点
-ENTRYPOINT ["/must.sh"]
+CMD ["/must.sh"]
 
 # 启动 SSH 服务和 Shellinabox
 # CMD ["/usr/sbin/sshd", "-D"] && /usr/bin/shellinaboxd -t -s /:LOGIN
