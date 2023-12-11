@@ -8,7 +8,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # 更改hostname
-RUN echo 'ubuntu' > /etc/hostname
+RUN echo 'ubuntu' > /etc/hostname \
+    && sleep 5s
 
 # 更新hosts文件
 RUN sed -i 's/127.0.1.1.*/127.0.1.1\tubuntu/g' /etc/hosts
