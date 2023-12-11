@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 # 安装 SSH 服务和 Shellinabox
 RUN apt-get update && \
     apt-get install -y openssh-server shellinabox && \
-    sudo apt install sudo git curl wget htop tree fdisk neofetch screen zsh htop atop vim openssh-server rsync zip unzip grep sed ncdu tar && \
+    apt install sudo git curl wget htop tree fdisk neofetch screen zsh htop atop vim rsync zip unzip grep sed ncdu tar && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
