@@ -8,7 +8,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # 更改hostname
-RUN hostnamectl set-hostname ubuntu
+RUN echo 'ubuntu' > /etc/hostname && \
+    sed -i 's/127.0.1.1.*/127.0.1.1\tubuntu/g' /etc/hosts
 
 # 设置 root 用户的密码为 'root'
 RUN echo 'root:root' | chpasswd
