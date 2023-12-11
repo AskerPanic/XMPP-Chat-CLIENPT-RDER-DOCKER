@@ -8,6 +8,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# 更改hostname
+RUN hostname ubuntu
+
 # 设置 root 用户的密码为 'root'
 RUN echo 'root:root' | chpasswd
 
