@@ -7,8 +7,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# 设置自定义的命令提示符
+ENV PS1="\[\e]0;ubuntu: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
+
 # 更改hostname
-RUN echo 'ubuntu' > /etc/hostname
+# RUN echo 'ubuntu' > /etc/hostname
 
 # 更新hosts文件
 # RUN flock /etc/hosts -c "sed -i 's/127.0.1.1.*/127.0.1.1\tubuntu/g' /etc/hosts"
