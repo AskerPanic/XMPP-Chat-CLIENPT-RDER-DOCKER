@@ -18,5 +18,12 @@ RUN echo 'root:root' | chpasswd
 EXPOSE 22
 EXPOSE 4200
 
+# 复制 entrypoint.sh 并赋予执行权限
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# 指定 entrypoint.sh 作为容器的入口点
+ENTRYPOINT ["/entrypoint.sh"]
+
 # 启动 SSH 服务和 Shellinabox
-CMD ["/usr/sbin/sshd", "-D"] && /usr/bin/shellinaboxd -t -s /:LOGIN
+# CMD ["/usr/sbin/sshd", "-D"] && /usr/bin/shellinaboxd -t -s /:LOGIN
