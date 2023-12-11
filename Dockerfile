@@ -8,11 +8,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # 更改hostname
-RUN echo 'ubuntu' > /etc/hostname \
-    && sleep 5s
+RUN echo 'ubuntu' > /etc/hostname
 
 # 更新hosts文件
-RUN flock /etc/hosts -c "sed -i 's/127.0.1.1.*/127.0.1.1\tubuntu/g' /etc/hosts"
+# RUN flock /etc/hosts -c "sed -i 's/127.0.1.1.*/127.0.1.1\tubuntu/g' /etc/hosts"
 
 # 设置 root 用户的密码为 'root'
 RUN echo 'root:root' | chpasswd
